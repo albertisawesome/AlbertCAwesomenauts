@@ -10,12 +10,15 @@ game.PlayScreen = me.ScreenObject.extend({
                 
                 var player = me.pool.pull("player", 0, 420,  {});
                 me.game.world.addChild(player, 5);
+                
+                
                 me.input.bindKey(me.input.KEY.RIGHT, "right");
-		// add our HUD to the game world
+		me.input.bindKey(me.input.KEY.LEFT, "left");
+                me.input.bindKey(me.input.KEY.UP, "jump", true);
+                // add our HUD to the game world
 		this.HUD = new game.HUD.Container();
 		me.game.world.addChild(this.HUD);
 	},
-
 
 	/**
 	 *  action to perform when leaving this screen (state change)
